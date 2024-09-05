@@ -114,7 +114,7 @@ function Business() {
           </Col>
         </Row>
       </Container>
-      <Container className="ContainerCard">
+      <Container className="ContainerCard ContainerCardAll">
         {businessArticles2
           ? businessArticles2.map((article) => {
               if (article.status !== "draft")

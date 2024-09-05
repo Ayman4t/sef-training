@@ -103,7 +103,7 @@ function Home() {
           </Col>
         </Row>
       </Container>
-      <Container className="ContainerCard">
+      <Container className="ContainerCard ContainerCardAll">
         {retrievedData
           ? retrievedData.map((article) => {
               if (article.status !== "draft")

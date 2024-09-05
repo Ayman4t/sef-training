@@ -13,11 +13,12 @@ import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Article = () => {
+  
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const { articles, isLoading } = useArticles();
   const [filteredArticles, setFilteredArticles] = useState(articles);
-
+  
   const { handleSearch } = useArticleSearch(
     searchTerm,
     articles,
@@ -25,13 +26,14 @@ const Article = () => {
     setSearchTerm
   );
   const [retrievedData, setRetrievedData] = useState([]);
-
+  
   const { handleSearch2 } = useRetrievedDataSearch(
     searchTerm,
     setRetrievedData,
     setSearchTerm
   );
-
+  
+  
   const handleEdit = (id) => {
     // Save the article ID as an integer to localStorage
     localStorage.setItem("editArticleId", id);

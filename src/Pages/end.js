@@ -50,7 +50,15 @@ function End() {
             </Breadcrumb>
           </Col>
           <Col sm={4}>
-            <Button variant="primary">
+            <Button
+              variant="primary"
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
               <FontAwesomeIcon icon={faAnglesUp} />
             </Button>
             <div className="GN">

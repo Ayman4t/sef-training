@@ -58,6 +58,11 @@ const AddArticle = () => {
     const editArticleId = localStorage.getItem("editArticleId");
     const existingData = JSON.parse(localStorage.getItem("articleData")) || [];
 
+    if (!articleTitle || !category || !content || !publishingDate || !path) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
     let updatedData;
 
     if (editArticleId) {
@@ -110,6 +115,11 @@ const AddArticle = () => {
     const editArticleId = localStorage.getItem("editArticleId");
     const existingData = JSON.parse(localStorage.getItem("articleData")) || [];
 
+    if (!articleTitle || !category || !content || !publishingDate || !path) {
+      alert("Please fill in all required fields");
+      return;
+    }
+
     let updatedData;
 
     if (editArticleId) {
@@ -161,12 +171,17 @@ const AddArticle = () => {
   const handleFileUpload = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      const fileUrl = URL.createObjectURL(selectedFile);
-      setPath(fileUrl);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPath(reader.result); // Set the Base64 string
+        console.log("Base64 Image:", reader.result); // You can check the Base64 string in console
+      };
+      reader.readAsDataURL(selectedFile); // Convert file to Base64 string
     } else {
       setPath("");
     }
   };
+  
   return (
     <div className="jop">
       <div className="main">

@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "react-bootstrap/Card";
-import img from "../Images/seff_logo_black.jpg";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -62,7 +61,8 @@ function ViewArticle() {
           </Container>
           <Container className="ContainerCard2">
             <Card className="cardArticle">
-              <Card.Img variant="top" src={img} />
+              {/* Use path from the selected article */}
+              <Card.Img variant="top" src={selectedArticle?.path || ''} />
               <Card.Body>
                 <Card.Text className="card-text-card">
                   {selectedArticle.content}
@@ -83,7 +83,8 @@ function ViewArticle() {
           </Container>
           <Container className="ContainerCard2">
             <Card className="cardArticle">
-              <Card.Img variant="top" src={img} />
+              {/* Using the path of the fallback article */}
+              <Card.Img variant="top" src={article?.path} />
               <Card.Body>
                 <Card.Text className="card-text-card">
                   {article?.content}

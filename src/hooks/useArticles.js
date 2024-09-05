@@ -49,6 +49,7 @@ export function useRetrievedDataSearch(
   setSearchTerm
 ) {
   useEffect(() => {
+   
     if (searchTerm === "") {
       setRetrievedData(retrievedData);
     } else {
